@@ -1,0 +1,55 @@
+[
+    {
+        "question": "What is the capital of France?",
+        "answers": [
+            "New York",
+            "London",
+            "Paris",
+            "Berlin"
+        ],
+        "correctAnswer": "Paris",
+        "type": "radio"
+    },
+    {
+        "question": "What is the capital of Germany?",
+        "answers": [
+            "New York",
+            "London",
+            "Paris",
+            "Berlin"
+        ],
+        "correctAnswer": "Berlin",
+        "type": "radio"
+    },
+    {
+        "question": "What is the capital of Italy?",
+        "answers": [
+            "Rome",
+            "London",
+            "Paris",
+            "Berlin"
+        ],
+        "correctAnswer": "Rome",
+        "type": "radio"
+    },
+    {
+        "question": "What is the capital of UK?",
+        "answers": [],
+        "correctAnswer": "London",
+        "type": "text"
+    },
+    {
+        "question": "Вопрос для нескольких вариантов",
+        "answers": [
+            "ответ 1",
+            "ответ 2",
+            "ответ 3",
+            "ответ 4"
+        ],
+        "correctAnswer": [
+            0,
+            3
+        ],
+        "type": "checkbox"
+    }
+]
