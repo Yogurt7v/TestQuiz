@@ -5,17 +5,11 @@ export interface DatabaseProps {
     type: string;
 }
 
-export interface SetResultProps {
-    setResult: (result: number) => void;
-}
-
-export interface SetCurrentPageProps {
-    setCurrentPage: (page: number) => void;
-}
-
-export interface IQuizCardProps extends SetResultProps, SetCurrentPageProps {
+export interface IQuizCardProps {
     database: DatabaseProps;
     currentPage: number;
+    setCurrentPage: (page: number) => void;
+    setResult: (result: number) => void;
 }
 
 export interface QuizQuestion {
@@ -33,4 +27,5 @@ export interface ResultProps {
     db: DatabaseProps[]
     setCurrentPage: (page: number) => void
     setResult: (result: number) => void
+    setTimeleft: (time: number) => void
 }

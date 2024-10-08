@@ -1,16 +1,19 @@
 import { Button } from "@mui/material"
 import { ResultProps } from "./types/types"
+import { TIME } from "./constants/const";
 
 export function Result({
     correctAnswer,
     db,
     setCurrentPage,
     setResult,
+    setTimeleft
 }: ResultProps) {
 
     const handleRestart = () => {
         setCurrentPage(0);
         setResult(0);
+        setTimeleft(TIME);
     };
 
     return (
