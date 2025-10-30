@@ -1,50 +1,106 @@
-# React + TypeScript + Vite
+# Quiz Приложение
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Интерактивное приложение-викторина, созданное с использованием React, TypeScript и Material-UI. Поддерживает различные типы вопросов, включая вопросы с множественным выбором, текстовым вводом и чекбоксами, с таймером и отслеживанием прогресса.
 
-Currently, two official plugins are available:
+## Возможности
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Различные типы вопросов**:
+  - Радио-кнопки (одиночный выбор)
+  - Чекбоксы (множественный выбор)
+  - Текстовый ввод
+- **Таймер**: Обратный отсчет времени для всей викторины
+- **Отслеживание прогресса**: Визуальная полоса прогресса
+- **Адаптивный дизайн**: Работает на десктопе и мобильных устройствах
+- **Локальное хранилище**: Автоматическое сохранение прогресса
+- **Material-UI**: Современный, чистый интерфейс
+- **Поддержка нескольких языков**: Вопросы могут быть на разных языках
 
-## Expanding the ESLint configuration
+## Используемые технологии
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Frontend фреймворк**: React 18
+- **Язык**: TypeScript
+- **Инструмент сборки**: Vite
+- **UI библиотека**: Material-UI (MUI)
+- **Стилизация**: CSS с адаптивным дизайном
+- **Управление состоянием**: React хуки
+- **Хранение данных**: Локальный JSON файл
 
-- Configure the top-level `parserOptions` property like this:
+## Быстрый старт
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Предварительные требования
+
+- Node.js (версия 16 или выше)
+- npm или yarn
+
+### Установка
+
+1. Клонируйте репозиторий:
+
+```bash
+git clone https://github.com/Yogurt7v/TestQuiz.git
+cd TestQuiz
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Установите зависимости:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm install
 ```
+
+3. Запустите сервер разработки:
+
+```bash
+npm run dev
+```
+
+4. Откройте [http://localhost:5173](http://localhost:5173) в браузере для просмотра приложения.
+
+## Доступные скрипты
+
+- `npm run dev` - Запуск сервера разработки
+- `npm run build` - Сборка проекта для продакшена
+- `npm run preview` - Предпросмотр сборки продакшена
+- `npm run lint` - Запуск ESLint для проверки кода
+
+## Структура проекта
+
+```
+src/
+├── components/
+│   ├── constants/
+│   │   └── const.tsx      # Константы времени
+│   ├── quizCard.tsx       # Основной компонент вопроса викторины
+│   ├── progressBar.tsx    # Индикатор прогресса
+│   ├── result.tsx         # Экран результатов
+│   └── types/
+│       └── types.tsx      # TypeScript интерфейсы
+├── database/
+│   └── db.json            # Данные вопросов викторины
+├── App.tsx                # Основной компонент приложения
+├── App.css                # Стили приложения
+├── index.css              # Глобальные стили
+└── main.tsx               # Точка входа приложения
+```
+
+## Типы вопросов
+
+### Радио-вопросы
+
+Вопросы с одиночным выбором, где пользователи выбирают один ответ из нескольких вариантов.
+
+### Текстовые вопросы
+
+Вопросы со свободным вводом текста, где пользователи набирают свой ответ.
+
+### Чекбокс-вопросы
+
+Вопросы с множественным выбором, где пользователи могут выбрать несколько правильных ответов.
+
+## Конфигурация
+
+Вопросы хранятся в `src/database/db.json`. Каждый объект вопроса содержит:
+
+- `question`: Текст вопроса
+- `answers`: Массив вариантов ответов (пустой для текстовых вопросов)
+- `correctAnswer`: Правильный ответ(ы)
+- `type`: Тип вопроса (`radio`, `checkbox` или `text`)
